@@ -28,7 +28,7 @@ class UmfangRechnerTest {
     }
 
     @Test
-    void throwsException_whenListIsEmpty() {
+    void throwsException_whenListForSumIsEmpty() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             umfangRechner.sum(List.of());
         });
@@ -37,9 +37,34 @@ class UmfangRechnerTest {
     }
 
     @Test
-    void throwsException_whenListIsNull() {
+    void throwsException_whenListForSumIsNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             umfangRechner.sum(null);
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void calculateMaxUmfang() {
+        double max = umfangRechner.max(forms);
+
+        assertEquals(31.42, max);
+    }
+
+    @Test
+    void throwsException_whenListForMaxIsEmpty() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            umfangRechner.max(List.of());
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void throwsException_whenListForMaxIsNull() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            umfangRechner.max(null);
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
