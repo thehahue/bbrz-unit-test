@@ -3,13 +3,13 @@ package at.bbrz.rechner;
 import at.bbrz.forms.Form;
 import at.bbrz.forms.Kreis;
 import at.bbrz.forms.Rechteck;
-import at.bbrz.rechner.UmfangRechner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class UmfangRechnerTest {
     UmfangRechner umfangRechner;
