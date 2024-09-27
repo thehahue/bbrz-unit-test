@@ -2,7 +2,7 @@ package at.bbrz.forms;
 
 import java.util.List;
 
-public class UmfangRechner implements Rechner {
+public class UmfangRechner extends AbstractRechner {
     @Override
     public double sum(List<Form> forms) throws IllegalArgumentException {
         checkIfNullOrEmpty(forms);
@@ -39,11 +39,5 @@ public class UmfangRechner implements Rechner {
         checkIfNullOrEmpty(forms);
 
         return forms.stream().mapToDouble(f -> f.umfang()).average().getAsDouble();
-    }
-
-    private void checkIfNullOrEmpty(List<Form> forms) {
-        if (forms == null || forms.isEmpty()) {
-            throw new IllegalArgumentException("List must not be empty or null.");
-        }
     }
 }

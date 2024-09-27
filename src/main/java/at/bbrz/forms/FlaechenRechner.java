@@ -2,7 +2,7 @@ package at.bbrz.forms;
 
 import java.util.List;
 
-public class FlaechenRechner implements Rechner{
+public class FlaechenRechner extends AbstractRechner {
 
     @Override
     public double sum(List<Form> forms) throws IllegalArgumentException {
@@ -27,9 +27,5 @@ public class FlaechenRechner implements Rechner{
         return 0;
     }
 
-    private void checkIfNullOrEmpty(List<Form> forms) {
-        if (forms == null || forms.isEmpty()) {
-            throw new IllegalArgumentException("List must not be empty or null.");
-        }
-    }
+
 }
