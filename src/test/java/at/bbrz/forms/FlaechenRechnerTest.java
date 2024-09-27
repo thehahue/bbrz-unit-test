@@ -40,4 +40,29 @@ class FlaechenRechnerTest {
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
+
+    @Test
+    void calculateMaxOfList() {
+        double max = flaechenRechner.max(forms);
+
+        assertEquals(34*34*Math.PI, max, 0.01);
+    }
+
+    @Test
+    void throwsException_whenListForMaxIsEmpty() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            flaechenRechner.max(List.of());
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void throwsException_whenListForMaxIsNull() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            flaechenRechner.max(null);
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
 }
