@@ -5,13 +5,6 @@ import java.util.List;
 public class UmfangRechner implements Rechner {
     @Override
     public double sum(List<Form> forms) throws IllegalArgumentException {
-//        double sum = 0;
-//
-//        for (Form form : forms) {
-//            sum += form.umfang();
-//        }
-//
-//        return sum;
         checkIfNullOrEmpty(forms);
 
         return forms.stream().mapToDouble(f -> f.umfang()).sum();
@@ -30,6 +23,14 @@ public class UmfangRechner implements Rechner {
         }
 
         return max;
+    }
+
+    @Override
+    public double min(List<Form> forms) throws IllegalArgumentException {
+
+        checkIfNullOrEmpty(forms);
+
+        return forms.stream().mapToDouble(f -> f.umfang()).min().getAsDouble();
     }
 
     private void checkIfNullOrEmpty(List<Form> forms) {
