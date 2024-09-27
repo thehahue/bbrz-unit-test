@@ -21,7 +21,9 @@ public class FlaechenRechner extends AbstractRechner {
 
     @Override
     public double min(List<Form> forms) throws IllegalArgumentException {
-        return 0;
+        checkIfNullOrEmpty(forms);
+
+        return forms.stream().mapToDouble(f -> f.flaeche()).min().getAsDouble();
     }
 
     @Override

@@ -65,4 +65,29 @@ class FlaechenRechnerTest {
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
+
+    @Test
+    void calculateMinOfList() {
+        double min = flaechenRechner.min(forms);
+
+        assertEquals(1*1, min);
+    }
+
+    @Test
+    void throwsException_whenListForMinIsEmpty() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            flaechenRechner.min(List.of());
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void throwsException_whenListForMinIsNull() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            flaechenRechner.min(null);
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
 }
