@@ -24,7 +24,7 @@ class UmfangRechnerTest {
     void calculateSumOfUmfang() {
         double sum = umfangRechner.sum(forms);
 
-        assertEquals(31.42 +18 + 29.59, sum);
+        assertEquals(31.42 + 18 + 29.59, sum);
     }
 
     @Test
