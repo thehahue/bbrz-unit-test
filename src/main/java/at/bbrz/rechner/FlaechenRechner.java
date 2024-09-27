@@ -6,6 +6,10 @@ import java.util.List;
 
 public class FlaechenRechner extends AbstractRechner {
 
+    public FlaechenRechner() {
+        this.rechnerName = "Flächen";
+    }
+
     @Override
     public double sum(List<Form> forms) throws IllegalArgumentException {
 

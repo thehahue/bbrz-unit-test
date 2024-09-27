@@ -5,6 +5,10 @@ import at.bbrz.forms.Form;
 import java.util.List;
 
 public class UmfangRechner extends AbstractRechner {
+    public UmfangRechner() {
+        this.rechnerName = "Umfang";
+    }
+
     @Override
     public double sum(List<Form> forms) throws IllegalArgumentException {
         checkIfNullOrEmpty(forms);
