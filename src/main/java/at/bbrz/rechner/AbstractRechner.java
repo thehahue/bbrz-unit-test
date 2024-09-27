@@ -1,4 +1,6 @@
-package at.bbrz.forms;
+package at.bbrz.rechner;
+
+import at.bbrz.forms.Form;
 
 import java.util.List;
 

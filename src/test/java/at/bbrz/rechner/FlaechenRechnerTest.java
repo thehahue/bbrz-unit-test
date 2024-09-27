@@ -1,5 +1,9 @@
-package at.bbrz.forms;
+package at.bbrz.rechner;
 
+import at.bbrz.forms.Form;
+import at.bbrz.forms.Kreis;
+import at.bbrz.forms.Rechteck;
+import at.bbrz.rechner.FlaechenRechner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,30 +11,26 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class UmfangRechnerTest {
-    UmfangRechner umfangRechner;
-    List<Form> forms = List.of(
-            new Kreis(5),
-            new Rechteck(4, 5),
-            new Kreis(4.71));
+class FlaechenRechnerTest {
 
+    FlaechenRechner flaechenRechner;
+    List<Form> forms;
     @BeforeEach
     void setUp() {
-        umfangRechner = new UmfangRechner();
+        flaechenRechner = new FlaechenRechner();
+        forms = List.of(new Kreis(34), new Rechteck(72, 12), new Rechteck(1, 1) );
     }
 
-
     @Test
-    void calculateSumOfUmfang() {
-        double sum = umfangRechner.sum(forms);
-
-        assertEquals(31.42 + 18 + 29.59, sum);
+    void calculateSumOfList_forms() {
+        double sum = flaechenRechner.sum(forms);
+        assertEquals((34*34*Math.PI + 72*12 + 1*1),sum, 0.01);
     }
 
     @Test
     void throwsException_whenListForSumIsEmpty() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.sum(List.of());
+            flaechenRechner.sum(List.of());
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
@@ -39,23 +39,23 @@ class UmfangRechnerTest {
     @Test
     void throwsException_whenListForSumIsNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.sum(null);
+            flaechenRechner.sum(null);
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
 
     @Test
-    void calculateMaxUmfang() {
-        double max = umfangRechner.max(forms);
+    void calculateMaxOfList() {
+        double max = flaechenRechner.max(forms);
 
-        assertEquals(31.42, max);
+        assertEquals(34*34*Math.PI, max, 0.01);
     }
 
     @Test
     void throwsException_whenListForMaxIsEmpty() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.max(List.of());
+            flaechenRechner.max(List.of());
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
@@ -64,23 +64,23 @@ class UmfangRechnerTest {
     @Test
     void throwsException_whenListForMaxIsNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.max(null);
+            flaechenRechner.max(null);
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
 
     @Test
-    void calculateMinUmfang() {
-        double min = umfangRechner.min(forms);
+    void calculateMinOfList() {
+        double min = flaechenRechner.min(forms);
 
-        assertEquals(18, min);
+        assertEquals(1*1, min);
     }
 
     @Test
     void throwsException_whenListForMinIsEmpty() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.min(List.of());
+            flaechenRechner.min(List.of());
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
@@ -89,23 +89,23 @@ class UmfangRechnerTest {
     @Test
     void throwsException_whenListForMinIsNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.min(null);
+            flaechenRechner.min(null);
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
 
     @Test
-    void calculateAvgUmfang() {
-        double avg = umfangRechner.avg(forms);
+    void calculateAvgOfList() {
+        double avg = flaechenRechner.avg(forms);
 
-        assertEquals((31.42 + 18 + 29.59)/3, avg);
+        assertEquals((34*34*Math.PI + 72*12 + 1*1)/3, avg, 0.01);
     }
 
     @Test
     void throwsException_whenListForAvgIsEmpty() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.avg(List.of());
+            flaechenRechner.avg(List.of());
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
@@ -114,10 +114,7 @@ class UmfangRechnerTest {
     @Test
     void throwsException_whenListForAvgIsNull() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
-            umfangRechner.avg(null);
+            flaechenRechner.avg(null);
         });
-
-        assertEquals("List must not be empty or null.", exception.getMessage());
     }
-
 }
