@@ -6,4 +6,5 @@ public interface Rechner {
     double sum(List<Form> forms) throws IllegalArgumentException;
     double max(List<Form> forms) throws IllegalArgumentException;
     double min(List<Form> forms) throws IllegalArgumentException;
+    double avg(List<Form> forms) throws IllegalArgumentException;
 }

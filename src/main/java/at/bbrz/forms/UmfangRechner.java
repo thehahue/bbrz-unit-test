@@ -33,6 +33,14 @@ public class UmfangRechner implements Rechner {
         return forms.stream().mapToDouble(f -> f.umfang()).min().getAsDouble();
     }
 
+    @Override
+    public double avg(List<Form> forms) throws IllegalArgumentException {
+
+        checkIfNullOrEmpty(forms);
+
+        return forms.stream().mapToDouble(f -> f.umfang()).average().getAsDouble();
+    }
+
     private void checkIfNullOrEmpty(List<Form> forms) {
         if (forms == null || forms.isEmpty()) {
             throw new IllegalArgumentException("List must not be empty or null.");
