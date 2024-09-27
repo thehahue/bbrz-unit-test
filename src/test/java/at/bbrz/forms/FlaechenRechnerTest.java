@@ -90,4 +90,27 @@ class FlaechenRechnerTest {
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
+
+    @Test
+    void calculateAvgOfList() {
+        double avg = flaechenRechner.avg(forms);
+
+        assertEquals((34*34*Math.PI + 72*12 + 1*1)/3, avg, 0.01);
+    }
+
+    @Test
+    void throwsException_whenListForAvgIsEmpty() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            flaechenRechner.avg(List.of());
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void throwsException_whenListForAvgIsNull() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            flaechenRechner.avg(null);
+        });
+    }
 }
