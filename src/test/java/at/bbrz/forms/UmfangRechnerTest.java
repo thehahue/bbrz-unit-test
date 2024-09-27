@@ -70,4 +70,29 @@ class UmfangRechnerTest {
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
 
+    @Test
+    void calculateMinUmfang() {
+        double min = umfangRechner.min(forms);
+
+        assertEquals(18, min);
+    }
+
+    @Test
+    void throwsException_whenListForMinIsEmpty() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            umfangRechner.min(List.of());
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void throwsException_whenListForMinIsNull() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
+            umfangRechner.min(null);
+        });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
 }
