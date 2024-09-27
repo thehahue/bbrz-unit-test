@@ -17,5 +17,5 @@ public abstract class AbstractForm implements Form {
         return bd.doubleValue();
     }
 
-    protected abstract void validateParameter();
+    protected abstract void validateInstanceVariables();
 }

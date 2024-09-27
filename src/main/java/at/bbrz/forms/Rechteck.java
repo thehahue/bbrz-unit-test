@@ -1,13 +1,13 @@
 package at.bbrz.forms;
 
 public class Rechteck extends AbstractForm {
-    private double a;
-    private double b;
+    private final double a;
+    private final double b;
 
     public Rechteck(double a, double b) {
         this.a = a;
         this.b = b;
-        validateParameter();
+        validateInstanceVariables();
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Rechteck extends AbstractForm {
         return result;
     }
 
-    protected void validateParameter() {
+    protected void validateInstanceVariables() {
         if (a <= 0 || b <= 0) {
             throw new IllegalArgumentException("Values must not be zero or negative.");
         }

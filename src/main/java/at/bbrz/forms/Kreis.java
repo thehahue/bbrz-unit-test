@@ -1,11 +1,11 @@
 package at.bbrz.forms;
 
 public class Kreis extends AbstractForm {
-    private double r;
+    private final double r;
 
     public Kreis(double r) {
         this.r = r;
-        validateParameter();
+        validateInstanceVariables();
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Kreis extends AbstractForm {
         return roundWithTwoDecimalPlaces(result);
     }
 
-    protected void validateParameter() {
+    protected void validateInstanceVariables() {
         if (r <= 0) {
             throw new IllegalArgumentException("Radius must not be zero or negative.");
         }
