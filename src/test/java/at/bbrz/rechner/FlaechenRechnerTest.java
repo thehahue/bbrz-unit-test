@@ -162,4 +162,18 @@ class FlaechenRechnerTest {
 
         assertEquals("Calculation overflow.", exception.getMessage());
     }
+
+    @Test
+    void calculateSumOfThousandForms(){
+        double sum = flaechenRechner.sum(TestHelper.createFormListWithThousandEntries());
+
+        assertEquals(400 ,sum);
+    }
+    @Test
+    void calculateAvgOfThousandForms(){
+        double avg = flaechenRechner.avg(TestHelper.createFormListWithThousandEntries());
+
+        assertEquals(0.4 ,avg);
+    }
+
 }

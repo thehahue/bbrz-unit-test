@@ -50,4 +50,13 @@ public class TestHelper {
             return -5.0 / 0.0;
         }
     }
+
+    public static List<Form> createFormListWithThousandEntries(){
+
+        List<Form> formList = new ArrayList<>();
+        for (int i = 0; i < 1000; i++){
+            formList.add(new TestFormWithParameters(0.1, 0.1));
+        }
+        return formList;
+    }
 }
