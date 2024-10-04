@@ -6,7 +6,7 @@ import java.util.List;
 
 public class UmfangRechner extends AbstractRechner {
     public UmfangRechner() {
-        this.rechnerName = "Umfang";
+        this.outputMessage = "Umfangsummen: ";
     }
 
     @Override

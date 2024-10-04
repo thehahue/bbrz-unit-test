@@ -7,10 +7,10 @@ import java.math.RoundingMode;
 import java.util.List;
 
 public abstract class AbstractRechner implements Rechner {
-    protected String rechnerName;
+    protected String outputMessage;
 
-    public String getRechnerName(){
-        return rechnerName;
+    public String getOutputMessage(){
+        return outputMessage;
     }
 
     protected void checkIfNullOrEmpty(List<Form> forms) {

@@ -7,7 +7,7 @@ import java.util.List;
 public class FlaechenRechner extends AbstractRechner {
 
     public FlaechenRechner() {
-        this.rechnerName = "Flächen";
+        this.outputMessage = "Flächensummen: ";
     }
 
     @Override

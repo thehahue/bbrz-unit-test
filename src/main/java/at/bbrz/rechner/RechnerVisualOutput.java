@@ -16,7 +16,7 @@ public class RechnerVisualOutput {
 
     public void printAllSummen() {
         for (Rechner re : rechner) {
-            outputWrapper.printLine( re.getRechnerName() + "summen: " + re.sum(formen));
+            outputWrapper.printLine( re.getOutputMessage() + re.sum(formen));
         }
     }
 }
