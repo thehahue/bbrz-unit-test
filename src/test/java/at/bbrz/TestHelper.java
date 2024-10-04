@@ -2,6 +2,9 @@ package at.bbrz;
 
 import at.bbrz.forms.Form;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestHelper {
 
     public static class TestForm implements Form{
