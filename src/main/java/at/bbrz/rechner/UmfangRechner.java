@@ -5,9 +5,6 @@ import at.bbrz.forms.Form;
 import java.util.List;
 
 public class UmfangRechner extends AbstractRechner {
-    public UmfangRechner() {
-        this.outputMessage = "Umfangsummen: ";
-    }
 
     @Override
     public String getSummenText() {
