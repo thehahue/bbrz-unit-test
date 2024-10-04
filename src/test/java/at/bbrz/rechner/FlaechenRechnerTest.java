@@ -121,4 +121,34 @@ class FlaechenRechnerTest {
         assertEquals("List must not be empty or null.", exception.getMessage());
 
     }
+
+    @Test
+    void throwsException_whenDoubleOverflow(){
+
+        List<Form> formList = List.of(new TestHelper.TestFormWithParameters(Double.MAX_VALUE, 2));
+
+        Throwable exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            flaechenRechner.min(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+
+        exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            flaechenRechner.max(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+
+        exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            flaechenRechner.avg(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+
+        exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            flaechenRechner.sum(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+    }
 }

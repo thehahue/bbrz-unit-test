@@ -15,21 +15,33 @@ public class FlaechenRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.flaeche()).sum();
+        double result = forms.stream().mapToDouble(f -> f.flaeche()).sum();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 
     @Override
     public double max(List<Form> forms) throws IllegalArgumentException {
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.flaeche()).max().getAsDouble();
+         double result = forms.stream().mapToDouble(f -> f.flaeche()).max().getAsDouble();
+
+         throwsExceptionWhenCalculationIsInfinite(result);
+         
+         return result;
     }
 
     @Override
     public double min(List<Form> forms) throws IllegalArgumentException {
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.flaeche()).min().getAsDouble();
+        double result = forms.stream().mapToDouble(f -> f.flaeche()).min().getAsDouble();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 
     @Override
@@ -37,7 +49,11 @@ public class FlaechenRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.flaeche()).average().getAsDouble();
+        double result = forms.stream().mapToDouble(f -> f.flaeche()).average().getAsDouble();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 
 
