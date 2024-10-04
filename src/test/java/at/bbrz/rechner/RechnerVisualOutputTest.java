@@ -35,6 +35,13 @@ class RechnerVisualOutputTest {
         Mockito.verify(outputWrapper).printLine("Flächensummen: 26.58");
     }
 
+    @Test
+    void printAllMinValues(){
+        rechnerVisualOutput.printMin();
+        Mockito.verify(outputWrapper).printLine("Kleinster Umfang: 8.2");
+        Mockito.verify(outputWrapper).printLine("Kleinste Fläche: 13.13");
+    }
+
     private static class TestForm implements Form {
 
         @Override

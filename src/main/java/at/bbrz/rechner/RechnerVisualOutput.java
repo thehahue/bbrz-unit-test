@@ -18,8 +18,8 @@ public class RechnerVisualOutput {
     }
 
     public void printAllSummen() {
-        for (Rechner re : rechner) {
-            outputWrapper.printLine( re.getOutputMessage() + roundWithTwoDecimalPlaces(re.sum(formen)));
+        for (Rechner re : rechner){
+            outputWrapper.printLine( re.getSummenText() + roundWithTwoDecimalPlaces(re.sum(formen)));
         }
     }
     private double roundWithTwoDecimalPlaces(double result) {
@@ -27,5 +27,11 @@ public class RechnerVisualOutput {
         bd = bd.setScale(2, RoundingMode.HALF_UP);
 
         return bd.doubleValue();
+    }
+
+    public void printMin() {
+        for (Rechner re : rechner) {
+            outputWrapper.printLine( re.getMinText() + roundWithTwoDecimalPlaces(re.min(formen)));
+        }
     }
 }
