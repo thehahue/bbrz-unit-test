@@ -17,5 +17,11 @@ public abstract class AbstractRechner implements Rechner {
         }
     }
 
+    protected void throwsExceptionWhenCalculationIsInfinite(double result) {
+        if (Double.isInfinite(result)) {
+            throw new IllegalArgumentException("Calculation overflow.");
+        }
+    }
+
 
 }
