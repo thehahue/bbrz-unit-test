@@ -1,9 +1,7 @@
 package at.bbrz.rechner;
 
+import at.bbrz.TestHelper;
 import at.bbrz.forms.Form;
-import at.bbrz.forms.Kreis;
-import at.bbrz.forms.Rechteck;
-import at.bbrz.rechner.FlaechenRechner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,9 +17,9 @@ class FlaechenRechnerTest {
     void setUp() {
         flaechenRechner = new FlaechenRechner();
         forms = List.of(
-                new TestForm(),
-                new TestFormWithParameters(2.5, 5.1),
-                new TestFormWithParameters(62.1, 1.66));
+                new TestHelper.TestForm(),
+                new TestHelper.TestFormWithParameters(2.5, 5.1),
+                new TestHelper.TestFormWithParameters(62.1, 1.66));
     }
 
     @Test
@@ -120,39 +118,4 @@ class FlaechenRechnerTest {
             flaechenRechner.avg(null);
         });
     }
-
-    private static class TestForm implements Form{
-
-        @Override
-        public double flaeche() {
-            return 1.111;
-        }
-
-        @Override
-        public double umfang() {
-            return 4.55;
-        }
-    }
-    private static class TestFormWithParameters implements Form{
-
-        private double a;
-        private double b;
-
-        public TestFormWithParameters(double a, double b){
-            this.a = a;
-            this.b = b;
-        }
-
-        @Override
-        public double flaeche() {
-            return a+b+2*a;
-        }
-
-        @Override
-        public double umfang() {
-            return b+a+a+a;
-        }
-    }
-
-
 }

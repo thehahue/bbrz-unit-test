@@ -1,8 +1,7 @@
 package at.bbrz.rechner;
 
+import at.bbrz.TestHelper;
 import at.bbrz.forms.Form;
-import at.bbrz.forms.Kreis;
-import at.bbrz.forms.Rechteck;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,9 +13,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class UmfangRechnerTest {
     UmfangRechner umfangRechner;
     List<Form> forms = List.of(
-            new Kreis(5),
-            new Rechteck(4, 5),
-            new Kreis(4.71));
+            new TestHelper.TestForm(),
+            new TestHelper.TestFormWithParameters(5, 5),
+            new TestHelper.TestFormWithParameters(Math.PI, 5));
 
     @BeforeEach
     void setUp() {
@@ -28,7 +27,7 @@ class UmfangRechnerTest {
     void calculateSumOfUmfang() {
         double sum = umfangRechner.sum(forms);
 
-        assertEquals(31.42 + 18 + 29.59, sum);
+        assertEquals(38.97477, sum, 0.00001);
     }
 
     @Test
@@ -53,7 +52,7 @@ class UmfangRechnerTest {
     void calculateMaxUmfang() {
         double max = umfangRechner.max(forms);
 
-        assertEquals(31.42, max);
+        assertEquals(20, max);
     }
 
     @Test
@@ -78,7 +77,7 @@ class UmfangRechnerTest {
     void calculateMinUmfang() {
         double min = umfangRechner.min(forms);
 
-        assertEquals(18, min);
+        assertEquals(4.55, min);
     }
 
     @Test
@@ -103,7 +102,7 @@ class UmfangRechnerTest {
     void calculateAvgUmfang() {
         double avg = umfangRechner.avg(forms);
 
-        assertEquals((31.42 + 18 + 29.59)/3, avg);
+        assertEquals(12.99159, avg, 0.00001);
     }
 
     @Test
