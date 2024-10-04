@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 
 class UmfangRechnerTest {
     UmfangRechner umfangRechner;
@@ -121,5 +121,35 @@ class UmfangRechnerTest {
         });
 
         assertEquals("List must not be empty or null.", exception.getMessage());
+    }
+
+    @Test
+    void throwsException_whenDoubleOverflow(){
+
+        List<Form> formList = List.of(new TestHelper.TestFormWithParameters(Double.MAX_VALUE, 2));
+
+        Throwable exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            umfangRechner.min(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+
+        exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            umfangRechner.max(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+
+        exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            umfangRechner.avg(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+
+        exception = assertThrowsExactly(IllegalArgumentException.class, () -> {
+            umfangRechner.sum(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
     }
 }
