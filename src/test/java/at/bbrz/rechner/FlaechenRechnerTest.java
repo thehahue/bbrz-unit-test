@@ -117,5 +117,8 @@ class FlaechenRechnerTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             flaechenRechner.avg(null);
         });
+
+        assertEquals("List must not be empty or null.", exception.getMessage());
+
     }
 }
