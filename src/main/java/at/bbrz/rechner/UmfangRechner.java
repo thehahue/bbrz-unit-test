@@ -10,6 +10,16 @@ public class UmfangRechner extends AbstractRechner {
     }
 
     @Override
+    public String getSummenText() {
+        return "Umfangsummen: ";
+    }
+
+    @Override
+    public String getMinText() {
+        return "Kleinster Umfang: ";
+    }
+
+    @Override
     public double sum(List<Form> forms) throws IllegalArgumentException {
 
         checkIfNullOrEmpty(forms);
