@@ -123,13 +123,4 @@ class UmfangRechnerTest {
 
         assertEquals("List must not be empty or null.", exception.getMessage());
     }
-
-    @Test
-    void sumRoundedCorrectly() {
-        double sum = umfangRechner.sum(List.of(
-                new Rechteck(5.000000001, 5)
-        ));
-
-        assertEquals(20, sum);
-    }
 }

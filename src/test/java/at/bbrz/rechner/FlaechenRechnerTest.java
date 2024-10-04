@@ -18,13 +18,16 @@ class FlaechenRechnerTest {
     @BeforeEach
     void setUp() {
         flaechenRechner = new FlaechenRechner();
-        forms = List.of(new Kreis(34), new Rechteck(72, 12), new Rechteck(1, 1) );
+        forms = List.of(
+                new TestForm(),
+                new TestFormWithParameters(2.5, 5.1),
+                new TestFormWithParameters(62.1, 1.66));
     }
 
     @Test
     void calculateSumOfList_forms() {
         double sum = flaechenRechner.sum(forms);
-        assertEquals((34*34*Math.PI + 72*12 + 1*1),sum, 0.01);
+        assertEquals(201.67,sum,0.01);
     }
 
     @Test
@@ -49,7 +52,7 @@ class FlaechenRechnerTest {
     void calculateMaxOfList() {
         double max = flaechenRechner.max(forms);
 
-        assertEquals(34*34*Math.PI, max, 0.01);
+        assertEquals(187.96, max);
     }
 
     @Test
@@ -74,7 +77,7 @@ class FlaechenRechnerTest {
     void calculateMinOfList() {
         double min = flaechenRechner.min(forms);
 
-        assertEquals(1*1, min);
+        assertEquals(1.111, min);
     }
 
     @Test
@@ -99,7 +102,7 @@ class FlaechenRechnerTest {
     void calculateAvgOfList() {
         double avg = flaechenRechner.avg(forms);
 
-        assertEquals((34*34*Math.PI + 72*12 + 1*1)/3, avg, 0.01);
+        assertEquals(67.22, avg, 0.01);
     }
 
     @Test
@@ -117,4 +120,39 @@ class FlaechenRechnerTest {
             flaechenRechner.avg(null);
         });
     }
+
+    private static class TestForm implements Form{
+
+        @Override
+        public double flaeche() {
+            return 1.111;
+        }
+
+        @Override
+        public double umfang() {
+            return 4.55;
+        }
+    }
+    private static class TestFormWithParameters implements Form{
+
+        private double a;
+        private double b;
+
+        public TestFormWithParameters(double a, double b){
+            this.a = a;
+            this.b = b;
+        }
+
+        @Override
+        public double flaeche() {
+            return a+b+2*a;
+        }
+
+        @Override
+        public double umfang() {
+            return b+a+a+a;
+        }
+    }
+
+
 }
