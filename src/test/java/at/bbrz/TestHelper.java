@@ -19,8 +19,8 @@ public class TestHelper {
 
     public static class TestFormWithParameters implements Form{
 
-        private double a;
-        private double b;
+        private final double a;
+        private final double b;
 
         public TestFormWithParameters(double a, double b){
             this.a = a;
