@@ -14,7 +14,11 @@ public class UmfangRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.umfang()).sum();
+        double result = forms.stream().mapToDouble(f -> f.umfang()).sum();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 
 
@@ -23,7 +27,11 @@ public class UmfangRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.umfang()).max().getAsDouble();
+        double result = forms.stream().mapToDouble(f -> f.umfang()).max().getAsDouble();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 
     @Override
@@ -31,7 +39,11 @@ public class UmfangRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.umfang()).min().getAsDouble();
+        double result = forms.stream().mapToDouble(f -> f.umfang()).min().getAsDouble();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 
     @Override
@@ -39,6 +51,10 @@ public class UmfangRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return forms.stream().mapToDouble(f -> f.umfang()).average().getAsDouble();
+        double result = forms.stream().mapToDouble(f -> f.umfang()).average().getAsDouble();
+
+        throwsExceptionWhenCalculationIsInfinite(result);
+
+        return result;
     }
 }
