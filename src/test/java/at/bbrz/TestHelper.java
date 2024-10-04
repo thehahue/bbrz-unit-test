@@ -16,6 +16,7 @@ public class TestHelper {
             return 4.55;
         }
     }
+
     public static class TestFormWithParameters implements Form{
 
         private double a;
@@ -34,6 +35,19 @@ public class TestHelper {
         @Override
         public double umfang() {
             return b+a+a+a;
+        }
+    }
+
+    public static class TestFormDivisionByZero implements Form {
+
+        @Override
+        public double flaeche() {
+            return 10.0 / 0.0;
+        }
+
+        @Override
+        public double umfang() {
+            return -5.0 / 0.0;
         }
     }
 }

@@ -29,6 +29,17 @@ class FlaechenRechnerTest {
     }
 
     @Test
+    void throwsException_whenDivisionByZero() {
+        List<Form> formList = List.of(new TestHelper.TestFormDivisionByZero());
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> {
+            flaechenRechner.sum(formList);
+        });
+
+        assertEquals("Calculation overflow.", exception.getMessage());
+    }
+
+    @Test
     void throwsException_whenListForSumIsEmpty() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> {
             flaechenRechner.sum(List.of());
