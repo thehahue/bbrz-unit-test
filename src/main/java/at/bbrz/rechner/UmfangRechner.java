@@ -14,7 +14,7 @@ public class UmfangRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        return roundWithTwoDecimalPlaces(forms.stream().mapToDouble(f -> f.umfang()).sum());
+        return forms.stream().mapToDouble(f -> f.umfang()).sum();
     }
 
 

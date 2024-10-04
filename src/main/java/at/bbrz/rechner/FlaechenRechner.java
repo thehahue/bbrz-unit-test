@@ -15,9 +15,7 @@ public class FlaechenRechner extends AbstractRechner {
 
         checkIfNullOrEmpty(forms);
 
-        double sum = forms.stream().mapToDouble(f -> f.flaeche()).sum();
-
-        return roundWithTwoDecimalPlaces(sum);
+        return forms.stream().mapToDouble(f -> f.flaeche()).sum();
     }
 
     @Override
