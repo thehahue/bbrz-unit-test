@@ -4,7 +4,7 @@ import at.bbrz.forms.Form;
 import java.util.List;
 
 public class RechnerVisualOutput {
-    private OutputWrapper outputWrapper;
+    private final OutputWrapper outputWrapper;
     private final List<Rechner> rechner;
     private final List<Form> formen;
 
