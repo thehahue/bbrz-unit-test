@@ -6,8 +6,15 @@ import java.util.List;
 
 public class FlaechenRechner extends AbstractRechner {
 
-    public FlaechenRechner() {
-        this.outputMessage = "Flächensummen: ";
+
+    @Override
+    public String getSummenText() {
+        return "Flächensummen: ";
+    }
+
+    @Override
+    public String getMinText() {
+        return "Kleinste Fläche: ";
     }
 
     @Override
