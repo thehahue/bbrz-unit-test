@@ -1,6 +1,9 @@
 package at.bbrz.rechner;
 import at.bbrz.OutputWrapper;
 import at.bbrz.forms.Form;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.List;
 
 public class RechnerVisualOutput {
@@ -16,7 +19,13 @@ public class RechnerVisualOutput {
 
     public void printAllSummen() {
         for (Rechner re : rechner) {
-            outputWrapper.printLine( re.getOutputMessage() + re.sum(formen));
+            outputWrapper.printLine( re.getOutputMessage() + roundWithTwoDecimalPlaces(re.sum(formen)));
         }
+    }
+    private double roundWithTwoDecimalPlaces(double result) {
+        BigDecimal bd = new BigDecimal(Double.toString(result));
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+
+        return bd.doubleValue();
     }
 }
