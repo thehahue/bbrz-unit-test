@@ -19,10 +19,5 @@ public abstract class AbstractRechner implements Rechner {
         }
     }
 
-    protected double roundWithTwoDecimalPlaces(double result) {
-        BigDecimal bd = new BigDecimal(Double.toString(result));
-        bd = bd.setScale(2, RoundingMode.HALF_UP);
 
-        return bd.doubleValue();
-    }
 }
